@@ -1,0 +1,32 @@
+# Squash
+
+El squashing es útil para mantener la historia de commits clara.
+
+## ¿Qué es el squashing?
+
+El squashing toma todos los cambios de una serie de commit y los aplasta 
+en un único commit.
+
+## ¿Cómo hacer un squash?
+
+El aplastamiento se realiza con el comando 'git rebase'. Los pasos para
+aplastar los n últimos commits son:
+
+1. Empezar un rebase interactivo con el comando 'git rebase -i HEAD~n', 
+   donde 'n' es el número de commits que se quiere aplastar.
+2. Git abrirá el editor por defecto con una lista de commits. Cambia la
+   palabra 'pick' a 'squash' para todos salvo el primer commit.
+3. Guardar y cerrar el editor.
+
+La indicaión '-i' marca "interactivo", y permite editar la historia del 
+commit antes de ue Git aplique los cambios. 'HEAD~n' es como se referencian
+los últimos 'n' commits. 'HEAD' apunta al commit actual y '~n' significa 
+"n commits antes de HEAD"
+
+## ¿Por qué hacer un rebase squash?
+
+'rebase' es sobre reemplazo de cambios. Cuando se rebasa en un commit 
+específico ('HEAD~n') decimos que Git reemplaza todos los cambios de la
+rama actual en la parte superior del commit. Entonces se usa la etiqueta
+intractiva para "aplastar" estos cambios así que Rebase los aplicará a un 
+único commit.
